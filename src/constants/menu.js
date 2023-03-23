@@ -29,7 +29,7 @@ const data = [{
   icon: "iconsminds-digital-drawing",
   label: "menu.others",
   to: "/user/login",
-  // roles: [UserRole.Editor],
+  roles: [UserRole.Editor],
   subs: [{
     icon: "simple-icon-user-following",
     label: "menu.login",
