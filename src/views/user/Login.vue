@@ -3,11 +3,11 @@
     <b-colxx xxs="12" md="10" class="mx-auto my-auto">
         <b-card class="auth-card" no-body>
             <div class="position-relative image-side">
-                <p class="text-white h2">{{ $t('dashboards.magic-is-in-the-details') }}</p>
+                <p class="text-white h2">{{ $t('dashboards.slogan') }}</p>
                 <p class="white mb-0">
-                    Please use your credentials to login.
-                    <br />If you are not a member, please
-                    <router-link to="/user/register" class="white">register</router-link>.
+                    <br />歡迎登入
+                    <br />還不是會員可以點擊這裡
+                    <router-link to="/user/register" class="white">註冊</router-link> !
                 </p>
             </div>
             <div class="form-side">
@@ -17,16 +17,16 @@
                 <h6 class="mb-4">{{ $t('user.login-title')}}</h6>
 
                 <b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-bottom">
-                    <b-form-group :label="$t('user.email')" class="has-float-label mb-4">
+                    <b-form-group :label="$t('user.phone')" class="has-float-label mb-4">
                         <b-form-input type="text" v-model="$v.form.email.$model" :state="!$v.form.email.$error" />
-                        <b-form-invalid-feedback v-if="!$v.form.email.required">Please enter your email address</b-form-invalid-feedback>
-                        <b-form-invalid-feedback v-else-if="!$v.form.email.email">Please enter a valid email address</b-form-invalid-feedback>
-                        <b-form-invalid-feedback v-else-if="!$v.form.email.minLength">Your email must be minimum 4 characters</b-form-invalid-feedback>
+                        <b-form-invalid-feedback v-if="!$v.form.email.required">請輸入手機號碼</b-form-invalid-feedback>
+                        <!--<b-form-invalid-feedback v-else-if="!$v.form.email.email">請輸入正確的手機號碼</b-form-invalid-feedback>-->
+                        <b-form-invalid-feedback v-else-if="!$v.form.email.minLength">Your phone must be minimum 4 characters</b-form-invalid-feedback>
                     </b-form-group>
 
                     <b-form-group :label="$t('user.password')" class="has-float-label mb-4">
                         <b-form-input type="password" v-model="$v.form.password.$model" :state="!$v.form.password.$error" />
-                        <b-form-invalid-feedback v-if="!$v.form.password.required">Please enter your password</b-form-invalid-feedback>
+                        <b-form-invalid-feedback v-if="!$v.form.password.required">請輸入密碼</b-form-invalid-feedback>
                         <b-form-invalid-feedback v-else-if="!$v.form.password.minLength || !$v.form.password.maxLength">Your password must be between 4 and 16 characters</b-form-invalid-feedback>
                     </b-form-group>
                     <div class="d-flex justify-content-between align-items-center">
@@ -76,8 +76,6 @@ export default {
     data() {
         return {
             form: {
-                email: "test@coloredstrategies.com",
-                password: "xxxxxx"
             },
         };
     },
@@ -103,15 +101,15 @@ export default {
         ...mapActions(["login"]),
         formSubmit() {
             this.$v.$touch();
-            this.form.email = "piaf-vue@coloredstrategies.com";
-            this.form.password = "piaf123";
+//            this.form.email = "piaf-vue@coloredstrategies.com";
+//            this.form.password = "piaf123";
             this.$v.form.$touch();
-           // if (!this.$v.form.$anyError) {
+            if (!this.$v.form.$anyError) {
                 this.login({
                     email: this.form.email,
                     password: this.form.password
                 });
-            //}
+            }
         }
     },
     watch: {

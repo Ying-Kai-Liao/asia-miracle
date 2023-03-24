@@ -2,13 +2,30 @@
   <div>
     <b-row>
       <b-colxx xxs="12">
-        <piaf-breadcrumb :heading="$t('資料串接中')" />
+        <piaf-breadcrumb :heading="$t('menu.analytics')" />
         <div class="separator mb-5"></div>
       </b-colxx>
     </b-row>
     <b-row>
       <b-colxx sm="12" md="6" class="mb-4">
         <website-visit-chart-card></website-visit-chart-card>
+      </b-colxx>
+    </b-row>
+    <b-row>
+      <b-colxx xl="4" lg="6" md="12" class="mb-4">
+        <product-categories-doughnut></product-categories-doughnut>
+      </b-colxx>
+      <b-colxx xl="4" lg="6" md="12" class="mb-4">
+        <profile-statuses></profile-statuses>
+      </b-colxx>
+      <b-colxx xl="4" lg="12" md="12">
+        <small-line-charts itemClass="dashboard-small-chart-analytics"></small-line-charts>
+      </b-colxx>
+    </b-row>
+    <sortable-statictics-row></sortable-statictics-row>
+    <b-row>
+      <b-colxx lg="6" xxs="12" class="mb-4">
+        <order-stock-radar-chart></order-stock-radar-chart>
       </b-colxx>
       <b-colxx lg="6" xxs="12" class="mb-4">
         <product-categories-polar-area></product-categories-polar-area>
@@ -21,6 +38,7 @@
     </b-row>
   </div>
 </template>
+
 <script>
 import ConversionRatesChartCard from "../../../containers/dashboards/ConversionRatesChartCard";
 import OrderStockRadarChart from "../../../containers/dashboards/OrderStockRadarChart";

@@ -3,9 +3,9 @@
     <b-colxx xxs="12" md=10  class="mx-auto my-auto">
       <b-card class="auth-card" no-body>
           <div class="position-relative image-side ">
-            <p class=" text-white h2">{{ $t('dashboards.magic-is-in-the-details') }}</p>
-              <p class="white mb-0">  Please use this form to register. <br />If you are a member, please
-                <router-link to="/user/login" class="white">login</router-link>.
+            <p class=" text-white h2">{{ $t('dashboards.slogan') }}</p>
+              <p class="white mb-0"><br />  填寫完即可完成註冊 <br />已經是會員了嗎 ? 
+                <router-link to="/user/login" class="white">請登入</router-link>.
               </p>
           </div>
           <div class="form-side">

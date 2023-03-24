@@ -21,7 +21,7 @@ export const lineChartData = {
 }
 
 export const polarAreaChartData = {
-  labels: ['Cakes', 'Desserts', 'Cupcakes'],
+  labels: ['薑黃', '苦瓜', '芝麻'],
   datasets: [
     {
       data: [80, 90, 70],
@@ -62,7 +62,7 @@ export const scatterChartData = {
     {
       borderWidth: 2,
       showLine: false,
-      label: 'Cakes',
+      label: '薑黃',
       borderColor: colors.themeColor1,
       backgroundColor: colors.themeColor1_10,
       data: [
@@ -78,7 +78,7 @@ export const scatterChartData = {
     {
       borderWidth: 2,
       showLine: false,
-      label: 'Desserts',
+      label: '苦瓜',
       borderColor: colors.themeColor2,
       backgroundColor: colors.themeColor2_10,
       data: [
@@ -98,14 +98,14 @@ export const barChartData = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June'],
   datasets: [
     {
-      label: 'Cakes',
+      label: '薑黃',
       borderColor: colors.themeColor1,
       backgroundColor: colors.themeColor1_10,
       data: [456, 479, 324, 569, 702, 600],
       borderWidth: 2
     },
     {
-      label: 'Desserts',
+      label: '芝麻',
       borderColor: colors.themeColor2,
       backgroundColor: colors.themeColor2_10,
       data: [364, 504, 605, 400, 345, 320],

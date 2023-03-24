@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import { currentUser, isAuthGuardActive } from '../../constants/config'
 import { setCurrentUser, getCurrentUser } from '../../utils'
+import axios from 'axios'
 
 export default {
   state: {
@@ -58,23 +59,30 @@ export default {
     login({ commit }, payload) {
       commit('clearError')
       commit('setProcessing', true)
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(payload.email, payload.password)
-        .then(
-          user => {
-            const item = { uid: user.user.uid, ...currentUser }
-            setCurrentUser(item)
-            commit('setUser', item)
-          },
-          err => {
-            setCurrentUser(null);
-            commit('setError', err.message)
-            setTimeout(() => {
-              commit('clearError')
-            }, 3000)
+      setCurrentUser(currentUser)
+      commit('setUser', currentUser)
+      /*axios
+        .post('http://34.29.129.56:8080/login/', {
+          phone: payload.phone,
+          password: payload.password
+        })
+        .then(response => {
+          const item = { 
+            username: response.data.username,
+            email: response.data.email,
+            phone: response.data.phone,
+            role: response.data.auth
           }
-        )
+          setCurrentUser(currentUser)
+          commit('setUser', currentUser)
+        })
+        .catch(error => {
+          /*setCurrentUser(null)
+          commit('setError', error.message)
+          setTimeout(() => {
+            commit('clearError')
+          }, 3000)
+        })*/
     },
     forgotPassword({ commit }, payload) {
       commit('clearError')

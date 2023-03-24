@@ -7,19 +7,20 @@
     "detail": "You are not authorized to view the page you are trying to access."
   },
   "user": {
-    "login-title": "Login",
-    "register": "Register",
-    "forgot-password": "Forgot Password",
+    "login-title": "登入",
+    "register": "註冊",
+    "forgot-password": "忘記密碼",
     "email": "E-mail",
-    "password": "Password",
+    "password": "密碼",
     "password-again": "請再輸入密碼",
     "forgot-password-question": "忘記密碼?",
-    "fullname": "Full Name",
+    "fullname": "名字",
     "login-button": "登入",
     "register-button": "註冊",
     "reset-password-button": "重設密碼",
     "buy": "BUY",
-    "username": "帳號"
+    "username": "帳號",
+    "phone": "手機號碼"
   },
   "menu": {
     "home": "Home",
@@ -135,6 +136,7 @@
     "report": "回報表單"
   },
   "dashboards": {
+    "slogan": "所有機會，都值得期待",
     "pending-orders": "Pending Orders",
     "completed-orders": "Completed Orders",
     "refund-requests": "Refund Requests",

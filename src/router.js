@@ -9,13 +9,20 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    component: () => import(/* webpackChunkName: "home" */ "./views/home"),
-    // redirect: `${adminRoot}/piaf`,
+    component: () => import(/* webpackChunkName: "home" */ "./views/user"),
+    redirect: "/user/login",
+    children: [
+      {
+        path: "login",
+        component: () =>
+          import(/* webpackChunkName: "user" */ "./views/user/Login")
+      }
+    ]
   },
   {
     path: adminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/app"),
-    redirect: `${adminRoot}/piaf`,
+    redirect: `${adminRoot}/dashboard`,
     meta: { loginRequired: true },
     /*
    define with Authorization :
@@ -23,13 +30,13 @@ const routes = [
    */
     children: [
       {
-        path: "piaf",
+        path: "dashboard",
         component: () =>
-          import(/* webpackChunkName: "piaf" */ "./views/app/piaf"),
-        redirect: `${adminRoot}/piaf/start`,
+          import(/* webpackChunkName: "piaf" */ "./views/app/dashboard"),
+        redirect: `${adminRoot}/dashboard/Analytics`,
         children: [
           {
-            path: 'start',
+            path: 'Analytics',
             component: () => import(/* webpackChunkName: "piaf" */ './views/app/piaf/Start')
             // meta: { roles: [UserRole.Admin, UserRole.Editor] },
           }
