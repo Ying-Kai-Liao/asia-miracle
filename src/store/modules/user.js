@@ -59,30 +59,29 @@ export default {
     login({ commit }, payload) {
       commit('clearError')
       commit('setProcessing', true)
-      setCurrentUser(currentUser)
-      commit('setUser', currentUser)
-      /*axios
+      axios
         .post('http://34.29.129.56:8080/login/', {
           phone: payload.phone,
           password: payload.password
         })
         .then(response => {
+          console.log("this is response --> " + JSON.stringify(response));
           const item = { 
             username: response.data.username,
             email: response.data.email,
             phone: response.data.phone,
             role: response.data.auth
           }
-          setCurrentUser(currentUser)
-          commit('setUser', currentUser)
+          setCurrentUser(item)
+          commit('setUser', item)
         })
         .catch(error => {
-          /*setCurrentUser(null)
+          setCurrentUser(null)
           commit('setError', error.message)
           setTimeout(() => {
             commit('clearError')
           }, 3000)
-        })*/
+        })
     },
     forgotPassword({ commit }, payload) {
       commit('clearError')

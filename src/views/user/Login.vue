@@ -18,10 +18,8 @@
 
                 <b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-bottom">
                     <b-form-group :label="$t('user.phone')" class="has-float-label mb-4">
-                        <b-form-input type="text" v-model="$v.form.email.$model" :state="!$v.form.email.$error" />
-                        <b-form-invalid-feedback v-if="!$v.form.email.required">請輸入手機號碼</b-form-invalid-feedback>
-                        <!--<b-form-invalid-feedback v-else-if="!$v.form.email.email">請輸入正確的手機號碼</b-form-invalid-feedback>-->
-                        <b-form-invalid-feedback v-else-if="!$v.form.email.minLength">Your phone must be minimum 4 characters</b-form-invalid-feedback>
+                        <b-form-input type="text" v-model="$v.form.phone.$model" :state="!$v.form.phone.$error" />
+                        <!--<b-form-invalid-feedback v-else-if="!$v.form.phone.phone">請輸入正確的手機號碼</b-form-invalid-feedback>-->
                     </b-form-group>
 
                     <b-form-group :label="$t('user.password')" class="has-float-label mb-4">
@@ -64,6 +62,7 @@ import {
 import {
     validationMixin
 } from "vuelidate";
+import { validPhone } from "../../components/Form/validPhone";
 const {
     required,
     maxLength,
@@ -87,9 +86,9 @@ export default {
                 maxLength: maxLength(16),
                 minLength: minLength(4)
             },
-            email: {
+            phone: {
                 required,
-                email,
+                //validPhone,
                 minLength: minLength(4)
             }
         }
@@ -103,18 +102,23 @@ export default {
             this.$v.$touch();
 //            this.form.email = "piaf-vue@coloredstrategies.com";
 //            this.form.password = "piaf123";
+            console.log(this.form);
             this.$v.form.$touch();
-            if (!this.$v.form.$anyError) {
+//            if (!this.$v.form.$anyError) {
                 this.login({
-                    email: this.form.email,
+                    phone: this.form.phone,
                     password: this.form.password
                 });
-            }
+//            }
         }
     },
     watch: {
         currentUser(val) {
-            if (val && val.uid && val.uid.length > 0) {
+            this.$notify("success", "Login success", val, {
+                duration: 3000,
+                permanent: false
+            });
+            if (val) {
                 setTimeout(() => {
                     this.$router.push(adminRoot);
                 }, 200);

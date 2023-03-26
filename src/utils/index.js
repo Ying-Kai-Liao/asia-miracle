@@ -144,6 +144,7 @@ export const getCurrentUser = () => {
   let user = null;
   try {
     user = localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')) : null;
+    console.log("this is getCurrentUser -->" + JSON.stringify(user));
   } catch (error) {
     console.log(">>>> src/utils/index.js : getCurrentUser -> error", error)
     user = null;
