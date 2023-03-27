@@ -67,10 +67,11 @@ export default {
         .then(response => {
           console.log("this is response --> " + JSON.stringify(response));
           const item = { 
-            username: response.data.username,
+            title: response.data.username,
             email: response.data.email,
             phone: response.data.phone,
-            role: response.data.auth
+            role: response.data.auth,
+            img: "/assets/img/profiles/doctor_1.png"
           }
           setCurrentUser(item)
           commit('setUser', item)
