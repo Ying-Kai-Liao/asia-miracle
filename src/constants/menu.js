@@ -11,15 +11,15 @@ const data = [{
   id: "health",
   icon: "iconsminds-apple",
   label: "menu.health",
-  to: `${adminRoot}/second-menu`,
+  to: `${adminRoot}/health`,
   subs: [{
     icon: "simple-icon-paper-plane",
     label: "menu.vip",
-    to: `${adminRoot}/second-menu/second`,
+    to: `${adminRoot}/health/vip`,
   }, {
     icon: "simple-icon-paper-plane",
     label: "menu.patient-data",
-    to: `${adminRoot}/second-menu/second`,
+    to: `${adminRoot}/health/data`,
   },
   ]
 },

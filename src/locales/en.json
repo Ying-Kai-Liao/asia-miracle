@@ -396,6 +396,9 @@
     "tab-card": "Tab Card",
     "user-card": "User Card"
   },
+  "vip": {
+    "icon-card": "卡片特權"
+  },
   "carousel": {
     "basic": "Carousel Basic",
     "single": "Carousel Single",

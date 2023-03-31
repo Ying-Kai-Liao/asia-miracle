@@ -37,7 +37,7 @@ const routes = [
         children: [
           {
             path: 'Analytics',
-            component: () => import(/* webpackChunkName: "piaf" */ './views/app/piaf/Start')
+            component: () => import(/* webpackChunkName: "piaf" */ './views/app/home/Start')
             // meta: { roles: [UserRole.Admin, UserRole.Editor] },
           }
         ]
@@ -55,8 +55,23 @@ const routes = [
           }
         ]
       },
-
-
+      {
+        path: "health",
+        component: () =>
+          import("./views/app/health"),
+        redirect: `${adminRoot}/health/vip`,
+        children: [
+          { 
+            path: 'vip', 
+            component: () => import(/* webpackChunkName: "piaf" */ './views/app/health/vip'),
+            // meta: { roles: [UserRole.Editor] },
+          },
+          {
+            path: 'data',
+            component: () => import('./views/app/health/data')
+          }
+        ]
+      },
       {
         path: "single",
         component: () =>
