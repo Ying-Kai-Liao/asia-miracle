@@ -114,7 +114,7 @@ export default {
     },
     watch: {
         currentUser(val) {
-            this.$notify("success", "Login success", val, {
+            this.$notify("success", "Login success", "Welcome, " + val.title , {
                 duration: 3000,
                 permanent: false
             });

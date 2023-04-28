@@ -6,4 +6,5 @@ export const UserRole = {
   VicePresident: 4,
   Staff: 6,
   SuperAdmin: 7,
+  Doctor: 8
 };

@@ -44,6 +44,7 @@ const data = [{
   icon: "iconsminds-pen-2",
   label: "menu.sales",
   to: "/sales",
+  roles: [UserRole.Sales],
   subs: [{
     icon: "simple-icon-user-following",
     label: "menu.team",
